@@ -3,22 +3,22 @@
 import { Card, Metric, Text, Title, BarList, Flex, Grid } from '@tremor/react';
 import Chart from './chart';
 
-const website = [
-  { name: '/home', value: 1230 },
-  { name: '/contact', value: 751 },
-  { name: '/gallery', value: 471 },
-  { name: '/august-discount-offer', value: 280 },
-  { name: '/case-studies', value: 78 }
+const user = [
+  { name: "TOBINAGA" },
+  { name: 'contact' },
+  { name: 'gallery' },
+  { name: 'august-discount-offer' },
+  { name: 'case-studies' }
 ];
 
-const shop = [
-  { name: '/home', value: 453 },
+const gakuto = [
+  { name: 'NaN', value: 453 },
   { name: '/imprint', value: 351 },
   { name: '/shop', value: 271 },
   { name: '/pricing', value: 191 }
 ];
 
-const app = [
+const john = [
   { name: '/shop', value: 789 },
   { name: '/product-features', value: 676 },
   { name: '/about', value: 564 },
@@ -28,40 +28,39 @@ const app = [
 
 const data = [
   {
-    category: 'Website',
-    stat: '10,234',
-    data: website
+    user: 'user',
+    post: '題名１',
+    data: user
   },
   {
-    category: 'Online Shop',
-    stat: '12,543',
-    data: shop
+    user: 'Gakuto',
+    post: '題名２',
+    data: gakuto
   },
   {
-    category: 'Mobile App',
-    stat: '2,543',
-    data: app
+    user: 'John',
+    post: '題名３',
+    data: john
   }
 ];
 
+// 全ユーザーの投稿が時系列順に表示されるようにする
 export default function PlaygroundPage() {
   return (
     <main className="p-4 md:p-10 mx-auto max-w-7xl">
       <Grid numItemsSm={2} numItemsLg={3} className="gap-6">
         {data.map((item) => (
-          <Card key={item.category}>
-            <Title>{item.category}</Title>
+          <Card key={item.user}>
+            <Title>{item.user}</Title>
             <Flex
               justifyContent="start"
               alignItems="baseline"
               className="space-x-2"
             >
-              <Metric>{item.stat}</Metric>
-              <Text>Total views</Text>
+              <Metric>{item.post}</Metric>
             </Flex>
             <Flex className="mt-6">
-              <Text>Pages</Text>
-              <Text className="text-right">Views</Text>
+              <Text>投稿内容</Text>
             </Flex>
             <BarList
               data={item.data}

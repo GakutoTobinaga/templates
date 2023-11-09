@@ -25,12 +25,16 @@ export default async function IndexPage({
 
   return (
     <main className="p-4 md:p-10 mx-auto max-w-7xl">
-      <Title>Users</Title>
-      <Text>A list of users retrieved from a Postgres database.</Text>
+      <Title>ユーザーを選択してください</Title>
       <Search />
+      <Card className="mt-6">
+        <UsersTable users={users} />
+      </Card>
+      <Card className='mt-7'>ユーザー一覧</Card>
       <Card className="mt-6">
         <UsersTable users={users} />
       </Card>
     </main>
   );
 }
+
